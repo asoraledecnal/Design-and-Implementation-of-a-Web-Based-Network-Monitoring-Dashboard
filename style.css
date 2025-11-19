@@ -9,8 +9,6 @@
 body {
     background: radial-gradient(circle at -25% -50%, rgba(60, 60, 60, 0.3), #1B1C21 70%);
     color: rgb(255, 255, 255);
-    height: 100vh;
-    overflow: hidden;
 }
 
 /* Navigation */
@@ -50,14 +48,84 @@ header {
     color: rgb(131, 131, 131);
 }
 
-/* Login Button */
-.login-btn {
-    border: 1px solid;
-    border-color: linear-gradient(90deg, #FFFFFF, #1B1C21, #FFFFFF) 1;
+/* Hamburger menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    transition: 0.3s;
+}
+
+/* Responsive for screens <= 768px */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        right: 40px;
+        background-color: #1b1c2157;
+        flex-direction: column;
+        width: 150px;
+        padding: 15px;
+        gap: 15px;
+        border-radius: 10px;
+        display: none; /* hidden by default */
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* show when toggled */
+    }
+
+    /* Show hamburger */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Hide nav-links horizontally */
+    .navbar .right-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* Get Started Button */
+.get-started {
+    text-align: center;
+    margin-top: -130px; /* space below hero */
+    margin-bottom: 50px;
+}
+
+.get-started-btn {
+    position: relative;
+    display: inline-block;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 100;
+    text-decoration: none;
+    color: #FFFFFF;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0);
-    padding: 2px 15px;
-    margin-top: -2.5px;
+    cursor: pointer;
+    background-color: rgba(139, 139, 139, 0); /* transparent fill */
+    border: 2px solid transparent;
+    border-color: #FFFFFF;
+    border-width: 1.5px;
+    transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
 }
 
 /* Hero Section */
@@ -74,10 +142,68 @@ header {
 
 
 .hero-image {
-    width: 350px;
+    width: 450px;
     height: auto;
     transform: translateY(-150px); 
 }
+
+/* Useful Card Set */
+.useful-cardset {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 10px auto;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    padding-bottom: 80px; /* add some bottom padding for scroll */
+}
+
+.useful-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* ensures image fits nicely */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+/* Card Image fills top portion of card */
+.useful-card img {
+    width: 100%;
+    height: 180px; /* fixed height */
+    object-fit: cover; /* ensures image covers area without distortion */
+    display: block;
+}
+
+/* Text content below image */
+.useful-card h3 {
+    font-size: 22px;
+    margin: 15px 10px 10px 10px;
+    color: #FFFFFF;
+}
+
+.useful-card p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+    margin: 0 10px 20px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Animations */
